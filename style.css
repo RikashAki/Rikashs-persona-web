@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    background: #000000; /* Use black background if image fails */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("menu.jpg");
+    background-size: cover;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    overflow: hidden;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10%;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 80px;
+    left: 20px;
+    top: 0px;
+    position: relative;
+    text-transform: uppercase;
+    transform: skew(-10deg) rotate(-2deg);
+    text-shadow: 5px 5px #d32f2f;
+    margin-bottom: 20px;
+    z-index: 10;
+}
+
+.btn-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    width: 280px;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 12px 0;
+    padding: 15px 40px;
+    background: #c50a0a;
+    color: #000000;
+    border: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    text-align: left;
+    cursor: pointer;
+    clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+    transform: skew(-15deg);
+    transition: 0.1s steps(2);
+    isolation: isolate;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 10; 
+    pointer-events: none;
+    display: block;
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.btn1 { transform: skew(-15deg) translateX(-40px); }
+.btn2 { transform: skew(-15deg) translateX(-20px); }
+.btn3 { transform: skew(-15deg) translateX(-0px); }
+.btn4 { transform: skew(-15deg) translateX(20px); }
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: -1;
+  transition: 0.1s;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    transform: skew(-15deg) translateX(40px) scale(1.1);
+}
+
+.btn:hover::before {
+  background: rgb(216, 31, 31);
+  transform: translateX(-10px);
+}
+
+
+.shard {
+  position: absolute;
+  background: rgba(211, 47, 47, 0.4); /* Faded Red */
+  z-index: -1;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%); /* Triangle shard */
+  animation: float 3s infinite alternate ease-in-out;
+}
+
+.shard-1 { width: 300px; height: 300px; top: -50px; left: -100px; transform: rotate(15deg); }
+.shard-2 { width: 200px; height: 500px; bottom: 0; right: -50px; transform: rotate(-10deg); }
+
+@keyframes float {
+  from { transform: translateY(0) rotate(15deg); }
+  to { transform: translateY(20px) rotate(18deg); }
+}
+
+#transition-curtain {
+    position: fixed;
+    top: 0;
+    left: -160%; /* Start completely off-screen */
+    width: 150%;
+    height: 100%;
+    background-color: #240505; /* Dark Red */
+    z-index: 9999; /* Make sure it's on top of everything */
+    transform: skew(0deg); /* Matches your menu's tilt */
+    transition: left 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.curtain-active {
+    left: -5% !important; /* Slides in to cover the screen */
+}
+
+#content {
+    /* ... your other styles ... */
+    transition: opacity 0.4s ease-in-out; /* Add this line */
+}
+
+#sub-page {
+   position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-left: 0 !important; 
+    display: none; /* Keep this so JS can control it */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    z-index: 500;
+}
+
+#page-title {
+    font-size: 100px;
+    color: #ffffff;
+    text-shadow: 8px 8px #d32f2f;
+    margin-bottom: 20px;
+    transform: skew(-12deg) rotate(-2deg);
+    text-transform: uppercase;
+}
+
+#page-body {
+    font-size: 32px;
+    color: #ffffff;
+    background: rgba(197, 10, 10, 0.9);
+    max-width: 800px; /* Keeps the text from stretching too wide */
+    line-height: 1.2;
+    padding: 40px;
+    transform: skew(-10deg);
+    text-align: center;
+    width: 60%;
+    border-left: 15px solid #c50a0a;
+    border-right: 5px solid #000000;  /* Black thin border on the right */
+    box-shadow: 15px 15px 0px #000000;
+    background-size: cover;      /* Covers the whole red box area */
+    background-repeat: no-repeat;
+    background-position: center;
+   
+}
+
+#sub-page .btn {
+    margin-top: 40px;
+    transform: skew(-15deg) scale(0.9);
+}

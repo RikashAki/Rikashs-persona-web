@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rikash's Persona Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="transition-curtain"></div>
+
+    <div id="main-menu" class="menu">
+
+        <h1>Rikash's Persona</h1>
+
+        <div class="shard shard-1"></div>
+        <div class="shard shard-2"></div>
+       
+        <div class="btn-container">
+            <div class="selector"></div>
+
+          <button class="btn btn1" onclick="navigateTo('about')">
+                <span class="btn-text">About me</span>
+            </button>
+            <button class="btn btn2" onclick="navigateTo('resume')">
+                <span class="btn-text">Resume</span>
+            </button>
+            <button class="btn btn3" onclick="navigateTo('socials')">
+                <span class="btn-text">Socials</span>
+            </button>
+            <button class="btn btn4" onclick="navigateTo('projects')">
+                <span class="btn-text">Side projects</span>
+            </button>
+        </div>
+        
+        <div id="content"></div>
+    </div>
+
+    <div id="sub-page" style="display: none;">
+        <h1 id="page-title">TITLE</h1>
+        <div id="page-body"></div> 
+        <br><br>
+        <button class="btn" onclick="goToHome()">
+            <span class="btn-text">BACK TO MENU</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+
+    <audio id="hover-sound" src="hover.mp3"></audio>
+    <audio id="select-sound" src="select.wav"></audio>
+
+</body>
+</html>
